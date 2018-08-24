@@ -20,16 +20,16 @@ export class UsersService {
   constructor(private http: HttpClient) {
   }
 
-  getUsersUrl = environment.apiUrl + '/users';
+  getUsersUrl = environment.apiUrl + '/users/couponlist';
   //getUsersUrl = 'http://review.inamdo.com/api/users';
 
-  getUsersMock(): Observable<User[]> {
+  getCouponListMock(): Observable<User[]> {
     var users = of(USERS);
     return users;
   }
 
-  getUsers(entityId: number) {
-    var users = this.http.get(this.getUsersUrl);
-    return users;
+  getCouponList(entityId: number) {
+    var couponList = this.http.get(this.getUsersUrl);
+    return couponList;
   }
 }

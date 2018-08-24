@@ -5,4 +5,6 @@ export class User {
   userPhone: string;
   userEmail: string;
   optIn: boolean;
+  code: number;
+  message: string;
 }

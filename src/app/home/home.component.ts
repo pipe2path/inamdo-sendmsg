@@ -14,26 +14,32 @@ export class HomeComponent implements OnInit {
   public users;
   public oneAtATime = true;
   constructor(private usersService: UsersService) { }
+  msg = 'You have earned 6 free wings! Order with this code: ';
 
   ngOnInit() {
     // this.getUsersMock();
-    this.getUsersWeb();
+    this.getCouponListWeb();
     }
 
   message = 'dfafaaddaf';
   code = '8458';
 
-  getUsersMock(): void {
-    this.usersService.getUsersMock()
+  getCouponListMock(): void {
+    this.usersService.getCouponListMock()
       .subscribe(users => this.users = users);
   }
 
-  getUsersWeb(): void {
-    this.usersService.getUsers(1)
+  getCouponListWeb(): void {
+    this.usersService.getCouponList(1)
       .subscribe(
-        data => {this.users = data},
+        data => { this.users = this.updateUserMessage(data); },
         err => console.error(err),
         () => console.log('done loading questions'));
   }
 
-}
+  updateUserMessage(data): void {
+    for ( let i = 0; i < data.length; i++) {
+      data[i].message = this.msg + data[i].code;
+    }
+    return data;
+  }

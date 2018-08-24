@@ -7,7 +7,9 @@ export const USERS: User[] = [
     'userName': 'Michael Amadio',
     'userPhone': '2199900992',
     'userEmail': 'mamadio@lakings.com',
-    'optIn': true
+    'optIn': true,
+    'code': 1433,
+    'message': 'You have earned 6 Free Wings! Your code when ordering: '
   },
   {
     '_id': '5b76517f257bca0d04469167',
@@ -15,7 +17,9 @@ export const USERS: User[] = [
     'userName': 'Dustin Brown',
     'userPhone': '2139998569',
     'userEmail': 'dbrown@lakings.com',
-    'optIn': true
+    'optIn': true,
+    'code': 1413,
+    'message': 'You have earned 6 Free Wings! Your code when ordering: '
   },
   {
     '_id': '5b765b5003c49c09a07d52fc',
@@ -23,7 +27,9 @@ export const USERS: User[] = [
     'userName': 'Drew Doughty',
     'userPhone': '6598832996',
     'userEmail': 'dd@lakings.com',
-    'optIn': false
+    'optIn': false,
+    'code': 4239,
+    'message': 'You have earned 6 Free Wings! Your code when ordering: '
   }
 ]
 
