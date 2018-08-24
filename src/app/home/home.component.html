@@ -1,0 +1,15 @@
+<div class="container-fluid">
+<br/>
+<h3>Send A Text Message</h3>
+<br/>
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let user of users; let i = index;">
+  <ngb-panel title={{user.userName}}>
+    <ng-template ngbPanelContent>
+      <div class="input-group input-group-lg">
+        <input id="msg" type="text" class="form-control" [(ngModel)]="user.code" name="msg" >
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+</div>
+
