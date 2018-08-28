@@ -13,16 +13,16 @@ export class HomeComponent implements OnInit {
   public isCollapsed = true;
   public users;
   public oneAtATime = true;
-  constructor(private usersService: UsersService) { }
-  msg = 'You have earned 6 free wings! Order with this code: ';
+
+  constructor(private usersService: UsersService) {
+  }
+
+  msg = 'You have earned 6 free wings. Enjoy!';
 
   ngOnInit() {
     // this.getUsersMock();
     this.getCouponListWeb();
-    }
-
-  message = 'dfafaaddaf';
-  code = '8458';
+  }
 
   getCouponListMock(): void {
     this.usersService.getCouponListMock()
@@ -32,14 +32,26 @@ export class HomeComponent implements OnInit {
   getCouponListWeb(): void {
     this.usersService.getCouponList(1)
       .subscribe(
-        data => { this.users = this.updateUserMessage(data); },
+        data => {
+          this.users = this.createUserMessage(data);
+        },
         err => console.error(err),
         () => console.log('done loading questions'));
   }
 
-  updateUserMessage(data): void {
-    for ( let i = 0; i < data.length; i++) {
-      data[i].message = this.msg + data[i].code;
+  // in case you want to append the code
+  createUserMessage(data): void {
+    for (let i = 0; i < data.length; i++) {
+      data[i].message = this.msg;
     }
     return data;
   }
+
+  onSubmit() {
+    var u = this.users;
+    this.usersService.saveCouponList(u).subscribe(
+      data => this.users = data);
+
+    this.ngOnInit();
+  }
+}
