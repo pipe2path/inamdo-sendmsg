@@ -42,16 +42,24 @@ export class HomeComponent implements OnInit {
   // in case you want to append the code
   createUserMessage(data): void {
     for (let i = 0; i < data.length; i++) {
-      data[i].message = this.msg;
+      let savedMsg = data[i].message;
+      data[i].message = (savedMsg === '' ?  this.msg : savedMsg);
     }
     return data;
   }
 
-  onSubmit() {
-    var u = this.users;
+  onSubmit2() {
+    const u = this.users;
     this.usersService.saveCouponList(u).subscribe(
       data => this.users = data);
 
     this.ngOnInit();
   }
+
+  onSubmit() {
+    const u = this.users;
+    this.usersService.saveCouponList(u).subscribe(
+      data => this.users = this.ngOnInit());
+  }
+
 }
