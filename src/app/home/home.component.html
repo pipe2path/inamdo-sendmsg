@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <br/>
-  <h3>Send A Text Message</h3>
+  <h3>Customize Message</h3>
   <br/>
   <form>
     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let user of users; let i = index;">
@@ -16,6 +16,7 @@
     <div>
         <input type="button" class="btn btn-primary btn-lg btn-block" value="Submit" (click)="onSubmit()">
     </div>
+    <br/>
   </form>
 </div>
 
