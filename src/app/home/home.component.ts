@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   createUserMessage(data): void {
     for (let i = 0; i < data.length; i++) {
       let savedMsg = data[i].message;
-      data[i].message = (savedMsg === '' ?  this.msg : savedMsg);
+      data[i].message = (savedMsg === null ?  this.msg : savedMsg);
     }
     return data;
   }
