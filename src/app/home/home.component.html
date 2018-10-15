@@ -3,8 +3,8 @@
   <h3>Customize Message</h3>
   <br/>
   <form>
-    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let user of users; let i = index;">
-      <ngb-panel title={{user.userName}}>
+    <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" activeIds="static-0">
+      <ngb-panel id="static-{{i}}" title={{user.userName}} *ngFor="let user of users; let i = index;">
         <ng-template ngbPanelContent>
           <div class="input-group input-group-lg">
             <input id="msg" type="text" [(ngModel)]="user.message" class="form-control" name="msg" />
