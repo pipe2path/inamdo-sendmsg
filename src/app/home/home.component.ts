@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private usersService: UsersService) {
   }
 
-  msg = 'You have earned 6 free wings. Enjoy!';
+  msg = 'You have earned 5 free wings. Enjoy!';
 
   ngOnInit() {
     // this.getUsersMock();
